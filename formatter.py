@@ -93,8 +93,6 @@ def reformat(input, output):
         for identifier, style in STYLES.items():
             apply_styles(identifier.split(), soup, style)
 
-
-
         # write output
         with open(output, "w") as file:
             file.write(str(soup.find('body')))
@@ -135,11 +133,11 @@ if __name__ == "__main__":
     
     # no metadata
     if len(sys.argv) == 3:
-        subprocess.run(["pandoc", clean_input_path, '-f', 'latex+auto_identifiers', '-t', 'html', '-s', '-o', pre_out_path, '--mathml', '--number-sections', '--template', 'pset.html5'])
+        subprocess.run(["pandoc", clean_input_path, '-f', 'latex+auto_identifiers', '-t', 'html', '-s', '-o', pre_out_path, '--mathml', '--number-sections', '--template', 'templates/pset.html5'])
     # metadata
     elif len(sys.argv) == 4:
         metadata_path = sys.argv[3]
-        subprocess.run(["pandoc", clean_input_path, '-f', 'latex+auto_identifiers', '-t', 'html', '-s', '-o', pre_out_path, '--mathml', '--number-sections', '--template', 'pset.html5', '--metadata-file', metadata_path])
+        subprocess.run(["pandoc", clean_input_path, '-f', 'latex+auto_identifiers', '-t', 'html', '-s', '-o', pre_out_path, '--mathml', '--number-sections', '--template', 'templates/pset.html5', '--metadata-file', metadata_path])
 
     reformat(pre_out_path, f'{out_name}.html')
     subprocess.run(["rm", "-rf", pre_out_path])
