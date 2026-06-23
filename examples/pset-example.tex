@@ -1,0 +1,451 @@
+\documentclass[homework, problems]{../../latex-common/cs151-common}
+% NOTE FOR STAFF: 
+% Please ONLY edit line 1 to switch to/from problems, solutions, and rubrics
+% EXAMPLE ON HOW TO DO SO BELOW. PLEASE FOLLOW THIS EXACTLY TO AVOID COMPILATION ISSUES
+% \documentclass[homework, problems]{..
+% \documentclass[homework, solutions]{..
+% \documentclass[homework, rubrics]{..
+
+
+\sectionnumber{1}
+\topic{Logic}    
+\duedate{Wednesday June 24, 2026}
+
+% \tagpdfsetup{activate/all}
+
+\begin{document}
+
+\maketitle
+
+%%%%% MANDATORY PROBLEMS %%%%%
+\begin{problemsonly}
+\begin{center}
+\section*{\hfill \huge Mandatory Problems \hfill}
+\end{center}
+
+\vspace{-3mm}
+\rule{\textwidth}{1pt}
+\vspace{-5mm}
+\end{problemsonly}
+
+ \section{Syllabus \hfill [2 points]}
+\begin{problemsonly}
+    
+Read the syllabus. If you have any questions about the syllabus, ask us on Piazza! 
+On your problem set submission write ``I have read the syllabus, and agree to follow the collaboration policies.'' for full credit.
+
+\end{problemsonly}
+\begin{rubric}
+    If they write anything that indicates they've read the syllabus AND that they will follow collaboration policies, they get full credit. 
+    Have a rubric item for everyone who somehow didn't do this right -- we'll make them email us the sentence and get full credit (I want this so we can say ``you told us you read the syllabus.'')
+\end{rubric}
+
+\section{Large Logic Machine \hfill [6 points]} 
+\begin{problemsonly}
+While writing the CS151 homework for the week, a valiant CS151 TA decided to ask an LLM (Large Logic Machine) to help it come up with problems. However, in the output, the TA noticed several issues... The LLM had falsely claimed that a number of pairs of compound propositions were equivalent!
+\end{problemsonly}
+
+
+\begin{problemsonly}
+To confirm the TA's suspicion, for each pair of propositions, find a truth assignment (i.e. an assignment of \texttt{True} or \texttt{False} to each variables) to show the pair of statements are not logically equivalent. Explain why your assignment works (our explanation is 1-2 sentences)! \\
+\end{problemsonly}
+
+\begin{hint}
+Use truth tables!
+\end{hint}
+
+\begin{rubric}
+\textbf{3 points each}
+\begin{description}
+    \item[3 pt] Full credit for a correct answer. (full truth tables for both statements are fine as long as they're correct)
+    \item[2 pt] For a partially correct answer.
+    \item[1 pt] describes truth values for all 3 variables.
+\end{description}
+\end{rubric}
+
+\begin{enumeratequestions}
+    \item $a \lor b \text{\quad vs. \quad} (a \rightarrow b) \lor a$
+
+    \begin{solution}
+        $a = b = F$ is the only solution
+    \end{solution}
+    
+    \item $(p \rightarrow q) \rightarrow r  \text{\quad vs. \quad} p \rightarrow (q \rightarrow r)$ 
+
+    \begin{solution}
+        Two possible solutions:
+        \begin{itemize}
+            \item $p=F, q=T, r=F$
+            \item $p = q = r = F$
+        \end{itemize}
+    \end{solution}
+\end{enumeratequestions}
+
+\section{All about Implications \hfill [12 points]}
+\begin{hint}
+    Remember, atomic propositions should not include any operations; no implications, no ands, no ors, and no nots!
+
+    When you take a contrapositive, you have to take the negation of each entire side of the implication; that means that you might need to use DeMorgan's law!
+\end{hint}
+
+\begin{rubric}
+    \textbf{Part a: Propositions} (2 points)\\
+    2/2 for all propositions defined and atomic, all have subject, verb; all unambiguously assert something.\\
+    1/2 for at most one distinct mistake (e.g. if all of ``Michelin star'', ``fresh ingredients'', ``delicious dishes" lack verbs, give 1/2). \\
+    0/2 for multiple distinct mistakes.
+
+    \textbf{Do NOT deduct} for reasonable alternative choices of subject. E.g. ``this is Monday'' / ``the current day is a holiday''
+    
+    \textbf{Do NOT deduct} for changes in tense/mood (``the Gate Center was open'', ``it is now the weekend'')
+    
+    \textbf{Do NOT deduct} for attempts to make propositions more precise as long as reasonable (e.g. ``You are allowed to park'', ``it is allowed to park here'') and something is asserted.
+    
+    \textbf{Parts b-d: Translations} (2 points each)\\
+    2/2 for correct translation \\
+    1/2 if one identifiable mistake (e.g., implication in wrong direction, parentheses in wrong place)\\
+    0/2 for two or more identifiable mistakes.
+    
+    %\textbf{Do NOT Deduct} for having a negation inside a proposition (but leave a note on it -- it's hard to define what exactly is the ``positive'' propostion).
+    
+    \textbf{Do NOT deduct} for simplifications (e.g. applying the law of implication). 
+
+    \textbf{Do NOT deduct} from the translation for ``not'' making a proposition non-atomic 
+
+    \textbf{Part e: Contrapositive} (2 points)
+    \begin{description}
+        \item[2pt] Correctly negates both sides AND correctly swaps direction
+        \item[1pt] Correctly negates both sides OR correctly swaps direction
+    \end{description}
+
+    \textbf{Part f: English translation} (2 points)
+\end{rubric}
+
+Define a set of \textit{at most three} atomic propositions. Then, use them to translate \textbf{each} of these sentences about cooking into logical notation. \emph{Do not simplify the statements.} Note that we want you to translate the sentences as they appear; you should not add any knowledge about cooking in doing the translation.
+
+\begin{enumeratequestions}
+    \item Define the \textbf{three} atomic propositions you will use for the rest of this question.
+    \begin{solution}
+    $m$: The chef earns a Michelin star \\
+    $f$: The chef uses many fresh ingredients \\
+    $d$: The chef cooks many delicious dishes
+    \end{solution}
+
+    \solutionnewpage
+    \item The chef earns a Michelin star only if they use many fresh ingredients.
+    \begin{solution}
+        $m \rightarrow f$
+    \end{solution}
+    
+    \item In order for the chef to cook many delicious dishes, they must use many fresh ingredients.
+    \begin{solution}
+        $d \rightarrow f$
+    \end{solution}
+    
+    \item If the chef does not earn a Michelin star but did use many fresh ingredients, it must be that they did not cook many delicious dishes.
+    \begin{solution}
+        $(\neg m \land f) \rightarrow \neg d$ (parens are not necessary for correctness)
+    \end{solution}
+
+    \item Take the contrapositive of the sentence in part (d) symbolically, and simplify so that any $\neg$ signs are next to atomic propositions (i.e. only single variables). You are not required to show work for this part. (You are allowed to use the double negation law to simplify your expression, i.e. that $\neg \neg p \equiv p$).
+    \begin{solution}
+     $d \rightarrow (m \lor \neg f)$
+    \end{solution}
+
+    \item Translate the contrapositive from part (e) back to an English sentence in the form \textbf{``if $\bm{a}$ then $\bm{b}$.”}.
+    \begin{solution}
+        If the chef cooks many delicious dishes, then the chef earns a Michelin star or did not use many fresh ingredients.
+    \end{solution}
+\end{enumeratequestions}
+
+% \solutionnewpage
+\section{Highly Illogical \hfill [10 points]}
+\begin{problemsonly}
+\textit{This problem is inspired by the Star Trek universe. A
+  ``transporter'' is a teleportation machine. Food is ``replicated''
+  instead of taken out of the freezer. ``Ice cream'' is still
+  delicious.}
+
+
+As a result of a tragic transporter accident, you have been named the legal guardian of T'Vin, a young Vulcan child.  T'Vin is ruthlessly and perfectly logical -- he takes each statement at its exact logical
+meaning; he does not believe you will lie, but he does not accept unstated intentions.
+
+You want T'Vin to clean his room, and (like many parents) you've resorted to bribery -- you are willing to replicate some ice cream in exchange for compliance.  T'Vin loves ice cream and hates cleaning. His first choice would be to get ice cream and not clean; his second choice would be to get ice cream and clean. 
+
+Said differently, he would rather have ice cream and clean his room than do neither, but he will not clean his room without a reward of ice cream, nor will he clean if he has any hope of getting ice cream another way. \\
+\end{problemsonly}
+
+\begin{hint}
+You can use truth tables to look at when the promise you've made is true. In what configurations is your promise is true? What possibilities do those rows represent? Does your promise leave open possibilities you don't mean to?     
+\end{hint}
+
+\begin{rubric}
+    \textbf{Parts a-b:} (3 points each)
+    \begin{description}
+        \item[3pt] Full credit for any explanation that is accurate to the problem (there may be others that work).
+        \item[1.5pt] For a sentence that has some relevance to the problem, but isn't a reason the pirates would be upset.
+    \end{description}
+
+    \textbf{Part c:} (4 points)
+    \textbf{3 points for the logical statement} 
+    \begin{description}
+        \item[3pt] For giving a correct biconditional (or other equivalent sentence, they can negate both sides and it will still be true) \\
+        No deduction, but leave a note if they have ``and'' instead of ``if and only if'' (i.e. ``you will get ice cream AND you will not throw me overboard"). That's not convincing them, it's telling them, but still give full credit.
+        \item[1pt] For giving a new logical statement with at least one conditional statement 
+    \end{description}
+        
+    \textbf{1 point for the explanation}: (as long as it's there and pointing toward the problem give it credit). 
+\end{rubric}
+
+\begin{enumeratequestions}
+	\item You tell T'Vin ``If you don't clean your room, then I won't replicate you any ice cream.''\\
+	He looks at you and says ``It is not yet logical to clean my room.'' Why will he not comply? (1-2 sentences) 
+    
+    \begin{solution}
+    You have left open the possibility that he cleans and gets nothing.
+	\end{solution}	
+		
+    \item You try again: ``Forget the first promise,'' you say. ``If you clean your room, then I will replicate you some ice cream.'' Still he says, ``It is not yet logical to clean my room'' Why is he not cleaning? (1-2 sentences)
+    
+	\begin{solution}
+	You have left open the possibility that he can get ice cream some other way. 
+	\end{solution}
+
+    \item Give a logical sentence (or sentences) which will compel T'Vin to clean his room.
+   
+    You cannot just \textbf{assert} that T'Vin will clean his room (e.g., you cannot just say ``You will clean your room.'') you must give promise(s) to make it the only logical choice to clean. 
+   
+    Additionally, argue that it will be the only logical choice to clean his room. (2-4 sentences)\\
+    
+	\begin{solution}
+		I will replicate you ice cream if and only if you clean your room. 
+			
+		This leaves only the options of both cleaning and ice cream or neither; thus he will accept both. 
+	\end{solution}
+\end{enumeratequestions}
+
+\problemnewpage
+\section{Proving Logical Equivalence \hfill [20 points]}
+\begin{problemsonly}
+\textit{Note: You are allowed to combine commutative, associative, and double negation laws with another law, but otherwise you should only perform one step per line (a step is using one law once). You \textbf{must} clearly state which laws you have applied on each line.}
+\end{problemsonly}
+
+% \begin{hint}
+%     Remember -- all laws can be applied in \textit{both} directions.
+
+%     Sometimes, it can be helpful to work in both directions and meet in the middle.
+% \end{hint}
+
+\begin{enumeratequestions}
+    \item Prove that the following propositions are \textbf{logically equivalent} using the laws of propositional logic:
+    $$(\neg s \wedge \neg t) \vee (\neg s \wedge t) \vee (s \wedge t) \text{ and } s \rightarrow t$$
+
+    \begin{solution}
+    \begin{align*}
+    (\neg s \wedge \neg t) \vee (\neg s \wedge t) \vee (s \wedge t) &\equiv (\neg s \land (\neg t \lor t)) \lor (s \land t) & \text{Distributive Law} \\
+    &\equiv (\neg s \land T) \lor (s \wedge t) & \text{Negation Law} \\
+    &\equiv \neg s \lor (s \land t) & \text{Identity Law} \\
+    &\equiv (\neg s \lor s) \wedge (\neg s \lor t) & \text{Distributive Law} \\
+    &\equiv T \land (\neg s \lor t) & \text{Complement Law} \\
+    &\equiv \neg s \lor t & \text{Identity Law} \\
+    &\equiv s \rightarrow t & \text{Conditional Identity}
+    \end{align*}
+    \end{solution}
+
+    \begin{rubric}
+        \textbf{1 point:} Starts with one of the correct propositions
+
+        \textbf{1 point:} Ends with one of the correct propositions
+        
+        \textbf{4 points for use of laws}
+        \begin{description}
+            \item[4pt] \textit{Each} step represents a logically equivalent statement reached by using \textbf{one} law \textbf{once}
+            \item[3pt] Each step represent a logically equivalent statement reached by using \textbf{one} law \textbf{once}, \textbf{1-2 mistakes}
+            \item[2pt] Each step represent a logically equivalent statement reached by using \textbf{one} law \textbf{once}, \textbf{3-4 mistakes}
+            \item[1pt] At least 1 step represents a logically equivalent statement reached by using \textbf{one} law \textbf{once}
+        \end{description}
+
+        \textbf{2 points for citing laws}
+        \begin{description}
+            \item[2pt] Cites the correct law used in \textbf{every} step (if an actual law was used)
+            \item[1pt] Cites the correct law used in every step (if an actual law was used), \textbf{1-4 mistakes}
+        \end{description}
+    \end{rubric}
+
+    \solutionnewpage
+    \item Prove that the following proposition is a \textbf{contradiction} using the laws of propositional logic:
+    $$(a \wedge \neg b) \wedge (a\rightarrow b)$$
+    \begin{solution}
+    \begin{align*}
+    (a \wedge \neg b) \wedge (a\rightarrow b) &\equiv (a \wedge \neg b) \wedge (\neg a \vee b) & \text{Conditional Identity} \\
+    &\equiv ((a \wedge \neg b) \wedge \neg a) \vee ((a \wedge \neg b) \vee b) & \text{Distributive Law} \\
+    &\equiv (\neg b \wedge F) \vee ((a \wedge \neg b) \vee b) & \text{Complement/Negation (+ Comm. + Assoc.)} \\
+    &\equiv F \vee ((a \wedge \neg b) \vee b) & \text{Domination Law} \\
+    &\equiv ((a \wedge \neg b) \vee b) & \text{Identity Law} \\
+    &\equiv (a \wedge F) & \text{Complement/Negation (+ Associative)} \\
+    &\equiv F & \text{Domination Law}
+    \end{align*}
+
+    Alternative Solution:
+
+    \begin{align*}
+    (a \wedge \neg b) \wedge (a\rightarrow b) &\equiv (a \wedge \neg b) \wedge (\neg a \vee b) & \text{Conditional Identity} \\
+    &\equiv (a \wedge \neg b) \wedge \neg(a \wedge \neg b) & \text{DeMorgan's Law} \\
+    &\equiv F & \text{Complement/Negation}
+    \end{align*}
+    \end{solution}
+
+    \begin{rubric}
+        \textbf{1 point:} Starts with the correct proposition
+
+        \textbf{1 point:} Ends with True
+        
+        \textbf{4 points for use of laws}
+        \begin{description}
+            \item[4pt] \textit{Each} step represents a logically equivalent statement reached by using \textbf{one} law \textbf{once}
+            \item[3pt] Each step represent a logically equivalent statement reached by using \textbf{one} law \textbf{once}, \textbf{1-2 mistakes}
+            \item[2pt] Each step represent a logically equivalent statement reached by using \textbf{one} law \textbf{once}, \textbf{3-4 mistakes}
+            \item[1pt] At least 1 step represents a logically equivalent statement reached by using \textbf{one} law \textbf{once}
+        \end{description}
+
+        \textbf{2 points for citing laws}
+        \begin{description}
+            \item[2pt] Cites the correct law used in \textbf{every} step (if an actual law was used)
+            \item[1pt] Cites the correct law used in every step (if an actual law was used), \textbf{1-4 mistakes}
+        \end{description}
+    \end{rubric}
+\end{enumeratequestions}
+
+%%%%% RECOMMENDED PROBLEMS %%%%%
+\begin{center}
+\section*{\hfill \huge Recommended Problems \hfill}
+\end{center}
+\vspace{-3mm}
+\rule{\textwidth}{1pt}
+\vspace{-2mm}
+
+If you complete \textit{at least} \textbf{1} part of each recommended problem, you will receive up to \textbf{3 points} extra credit on this problem set. 
+
+\section{Recommended: Large Logic Machine}
+\begin{example}
+    \textbf{EXAMPLE:} $\neg p \land \neg q$ v.s. $\neg (p\land q)$
+
+    When $p=T$ and $q=F$, $\neg p \land \neg q = F$ and $\neg (p\land q) = T$.
+\end{example}
+
+Find a truth assignment (i.e. an assignment of \texttt{True} or \texttt{False} to each variables) to show that each pair of statements are not logically equivalent. Explain why your assignments work (our explanation is 1-2 sentences)!
+
+\begin{enumeratequestions}
+    \item $\neg a \rightarrow \neg b$ v.s. $\neg b \rightarrow \neg a$
+    \begin{solution}
+        $a$ and $b$ must have different values. When $a=T$ and $b=F$, $\neg a \rightarrow \neg b = T$ and $\neg b \rightarrow \neg a = F$. They have the reverse values when $a=F$ and $b=T$.
+    \end{solution}
+    
+    \item $p \land q$ v.s. $(p \land q) \rightarrow p$
+    \begin{solution}
+        When $p=q=F$, $p \vee q = F$ and $(p \rightarrow q) \vee p =T$.
+    \end{solution}
+\end{enumeratequestions}
+
+% \problemnewpage
+\section{Recommended: Proving logical equivalence}
+Prove that each pair of propositions are logically equivalent using the laws of propositional logic:
+
+\begin{example}
+    \textbf{EXAMPLE:} Prove that the following propositions are logically equivalent: $p \wedge (\neg p \rightarrow q) \equiv p$.
+    \begin{align*}
+        p \wedge (\neg p \rightarrow q) & \equiv p \wedge (p \vee q) & \text{conditional identity} \\
+        & \equiv p & \text{absorption law}
+    \end{align*}
+\end{example}
+
+\begin{problemsonly}
+\textit{Note: You are allowed to combine commutative, associative, and double negation laws with another law, but otherwise you should only perform one step per line (a step is using one law once). You \textbf{must} clearly state which laws you have applied on each line.}
+\end{problemsonly}
+
+\begin{enumeratequestions}
+    \item $(a \wedge b) \rightarrow c$  and $(a \wedge \neg c) \rightarrow \neg b$
+
+    \begin{solution}
+    \begin{align*}
+            (a \wedge b) \rightarrow c &\equiv \neg (a \wedge b) \vee c & \text{Conditional Identity} \\
+            &\equiv (\neg a \vee \neg b) \vee c & \text{DeMorgan's Law} \\
+            &\equiv (\neg b \vee \neg a) \vee c & \text{Commutative Law} \\
+            &\equiv \neg b \vee (\neg a \vee c) & \text{Associative Law} \\
+            &\equiv (\neg a \vee c) \vee \neg b & \text{Commutative Law} \\
+            &\equiv (\neg a \vee \neg \neg c) \vee \neg b & \text{Double Negation } \\
+            &\equiv \neg (a \wedge \neg c) \vee \neg b & \text{DeMorgan's Law} \\
+            &\equiv (a \wedge \neg c) \rightarrow \neg b & \text{Conditional Identity}
+    \end{align*}
+    \end{solution}
+
+    % \solutionnewpage
+    \item Prove that $\neg r \vee (\neg r \rightarrow p)$ is a tautology.
+
+    \begin{solution}
+    \begin{align*}
+            \neg r \vee (\neg r \rightarrow p) &\equiv \neg r \vee (\neg \neg r \vee p) & \text{Conditional Identity} \\
+            &\equiv \neg r \vee (r \vee p) & \text{Double Negation} \\
+            &\equiv (\neg r \vee r) \vee p & \text{Associative Law} \\
+            &\equiv T \vee p & \text{Negation} \\
+            &\equiv T & \text{Domination} 
+        \end{align*}
+    \end{solution}
+\end{enumeratequestions}
+
+\solutionnewpage
+\section{Recommended: All About Conditionals}
+\begin{example}
+\textbf{EXAMPLE:} Given the statement \textit{``Raining is sufficient for pouring."}
+
+% \begin{enumerate}
+Define the propositions: \\
+    $p$: ``It is raining" \\
+    $q$: ``It is pouring" \\
+    $p \rightarrow q$
+    
+The \textbf{contrapositive symbolically} is $\neg q \rightarrow \neg p$. \\
+In English, the \textbf{contrapositive} is ``If it is not pouring, then it is not raining." \\
+The \textbf{converse} is ``If it is pouring, then it is raining." This is true when it rains but does not pour, but the original is false.
+\end{example}
+
+
+Consider the following conditional statement:
+
+\begin{center}
+\textbf{Statement:} ``Sabrina Carpenter works late only if she is a singer."
+\end{center}
+
+\begin{enumeratequestions}
+\item Convert the sentence into propositional logic. Make sure to clearly define the propositions you use. Make sure the propositions you introduce are atomic (not the combination of smaller propositions).
+\begin{solution}
+    Define the propositions: \\
+    $p$ \quad ``Sabrina Carpenter works late" \\
+    $q$ \quad ``Sabrina Carpenter is a singer" \\
+    $p \rightarrow q$
+\end{solution}
+
+\item Take the contrapositive of the sentence symbolically, and simplify so that any $\neg$ signs are next to atomic propositions
+(i.e. only single variables). You are not required to show work for this part. 
+% (You are allowed to use the double negation law to simplify your expression, i.e. that $\neg \neg p \equiv p$).
+\begin{solution}
+    $\neg q \rightarrow \neg p$
+\end{solution}
+
+\item Translate the contrapositive back to an English sentence in the form \textbf{``if $\bm{a}$ then $\bm{b}$.”}.
+\begin{solution}
+    If Sabrina Carpenter is not a singer, then she does not work late.
+\end{solution}
+
+\item Write the converse of the original statement as an \textbf{English sentence} in the form \textbf{``if $\bm{a}$ then $\bm{b}$.”} Give an example where your new statement would be true when the original statement would be false.
+\begin{solution}
+If Sabrina Carpenter is a singer, then she works late. This is true when Sabrina Carpenter isn't a singer who works late, whereas the original is false.
+\end{solution}
+\end{enumeratequestions}
+
+\end{document}
+
+%%% Local Variables: 
+%%% mode: latex 
+%%% TeX-engine: luatex
+%%% TeX-master: "homework1.tex"
+%%% End:
