@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html$if(lang)$ lang="$lang$"$endif$$if(dir)$ dir="$dir$"$endif$>
+
+<body>
+$for(include-before)$
+$include-before$
+$endfor$
+<article>
+<header>
+$if(date)$
+<p class="byline"><strong>Due Date:</strong> $date$ at 11:59PM (Central Time)</p>
+<hr />
+$endif$
+<h3 class="unnumbered" id="instructions">Instructions</h3>
+<p>This assignment must be submitted on Gradescope. You will upload your
+answers as a PDF. Make sure your work is clearly labeled. <strong>When
+you upload, you must match each problem with the page(s) it is
+on</strong>. <strong>If you do not match a problem to the pages it is
+on, a 10% penalty will be applied to the grade for that
+problem</strong>. You must upload correct answers to the mandatory
+problems to receive full credit for the assignment.</p>
+<p>In general, you are graded on both the clarity and accuracy of your
+work. Your solution should be clear enough that someone in the class who
+had not seen the problem before would understand it. <strong>Problem set
+answers must be legible</strong>. <em>Illegible work <strong>will not be
+graded</strong>.</em> We cannot award points for solutions that we
+cannot easily read. If you are typing your answers, make sure you use
+the correct symbols. You can use an equation editor in Google Docs or MS
+Word, or you can use Overleaf and the LaTeX template we have provided
+(see the LaTeX Resources on Canvas for help on how to use LaTeX). Please
+make sure to read over your work before submitting it! (just because
+it's typed does not always mean it's legible).</p>
+<p>We sometimes describe approximately how long our explanations are.
+These are intended to help you understand approximately how much detail
+we are expecting. You are allowed to have longer explanations, but
+explanations significantly longer than necessary may receive
+deductions.</p>
+<p><strong>This assignment is individual</strong>. Offering or receiving
+any kind of unauthorized or unacknowledged assistance (including
+searching for solutions online or using Generative AI tools) is a
+violation of the University's academic integrity policies, will result
+in a grade of zero for the assignment, and will be subject to
+disciplinary action.</p>
+<p><em>Please see the <a href="https://docs.google.com/document/d/1QRFpQPQMHIuzrkTJmHBaoMCrqfb6MxhTpAck3sRsmXM/edit?usp=sharing">Course
+Syllabus</a> for the full <a href="https://docs.google.com/document/d/1QRFpQPQMHIuzrkTJmHBaoMCrqfb6MxhTpAck3sRsmXM/edit?tab=t.ks06hwu1mwin">homework
+formatting</a>, <a href="https://docs.google.com/document/d/1QRFpQPQMHIuzrkTJmHBaoMCrqfb6MxhTpAck3sRsmXM/edit?tab=t.d2yzqh52rqkq#heading=h.uwfbp6k89x3i">collaboration</a>,
+and <a href="https://docs.google.com/document/d/1QRFpQPQMHIuzrkTJmHBaoMCrqfb6MxhTpAck3sRsmXM/edit?tab=t.ks06hwu1mwin">late
+policies</a>.</em></p>
+</header>
+$body$
+</article>
+$for(include-after)$
+$include-after$
+$endfor$
+</body>
+</html>
